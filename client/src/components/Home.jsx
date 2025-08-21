@@ -67,7 +67,7 @@ export default function Home({ api }){
             <div className="row">
               <div className="col">
                 <label className="small">Your Name</label>
-                <input placeholder="e.g. Anjali" value={name} onChange={e=>setName(e.target.value)} />
+                <input placeholder="e.g. name" value={name} onChange={e=>setName(e.target.value)} />
               </div>
               <div className="col">
                 <label className="small">Room ID (to join)</label>
