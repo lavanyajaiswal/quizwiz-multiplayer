@@ -1,0 +1,142 @@
+
+:root{
+  --bg: #0f172a;
+  --card: #111827;
+  --accent: #6769eb;
+  --accent2: #22d3ee;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --gold: #f59e0b;
+}
+* { box-sizing: border-box; }
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, 'Helvetica Neue', Arial;
+  background: radial-gradient(1200px 800px at 20% 10%, rgba(99,102,241,.15), transparent), var(--bg);
+  color: var(--text);
+}
+.container{ max-width: 980px; margin: 0 auto; padding: 24px; }
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  backdrop-filter: blur(6px);
+}
+.row{ display:flex; gap:16px; flex-wrap: wrap; }
+.col{ flex:1; min-width: 260px; }
+h1{ font-size: 40px; margin: 8px 0 4px 0; letter-spacing: .5px; }
+h2{ font-size: 24px; margin: 0 0 12px 0; }
+p{ color: var(--muted); }
+input, select{
+  width: 100%;
+  background: #0b1020;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--text);
+  padding: 12px 14px;
+  border-radius: 12px;
+  outline: none;
+}
+input::placeholder{ color: #6b7280; }
+.btn{
+  padding: 12px 16px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform .05s ease, box-shadow .3s ease;
+  box-shadow: 0 10px 20px rgba(99,102,241,.25);
+}
+
+
+.btn:active{ transform: translateY(1px) scale(.995); }
+.btn.sec{
+  background: transparent;
+  border: 1px dashed rgba(255,255,255,.2);
+  color: var(--text);
+  box-shadow: none;
+}
+
+.badge{
+  padding: 4px 10px;
+  background: rgba(99,102,241,.15);
+  border: 1px solid rgba(99,102,241,.35);
+  color: #c7d2fe;
+  font-size: 12px;
+  border-radius: 999px;
+}
+.list{
+  display: grid;
+  gap: 8px;
+}
+.player{
+  display:flex; align-items:center; justify-content:space-between;
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 10px; padding: 10px 12px;
+}
+.timer{
+  font-variant-numeric: tabular-nums;
+  font-size: 32px; font-weight: 700; letter-spacing: .5px;
+}
+.option{
+  padding: 12px 14px; border-radius: 12px; cursor: pointer;
+  background: #0b1020; border: 1px solid rgba(255,255,255,.06);
+}
+.option:hover{ border-color: rgba(255,255,255,.18); }
+.option.selected{ outline: 2px solid var(--accent2); }
+.option.correct{ border-color: rgba(34,197,94,.8); }
+.option.wrong{ border-color: rgba(239,68,68,.8); }
+.progress{
+  height: 10px; background: #0b1020; border-radius: 999px; overflow:hidden; border: 1px solid rgba(255,255,255,.06);
+}
+.progress > div{
+  height:100%; background: linear-gradient(90deg, var(--accent), var(--accent2));
+  width: 0%;
+}
+.hero{
+  position: relative; overflow: hidden;
+  border: 1px solid rgba(255,255,255,.07);
+  background: radial-gradient(800px 300px at 0% 0%, rgba(34,211,238,.18), transparent);
+}
+.hero::after{
+  content:''; position:absolute; inset: -40px -60px auto auto; width: 240px; height: 240px;
+  background: radial-gradient(closest-side, rgba(99,102,241,.45), transparent);
+  filter: blur(30px); border-radius: 50%;
+}
+.features{
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px;
+}
+.feature{
+  padding:14px; border:1px solid rgba(255,255,255,.06); border-radius:12px; background:rgba(255,255,255,.02);
+}
+.kbd{ font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; padding:2px 6px; border:1px solid rgba(255,255,255,.2); border-radius:6px; }
+.result-card{
+  text-align:center; padding: 24px; border-radius: 16px; border:1px solid rgba(255,255,255,.08);
+  background: linear-gradient(180deg, rgba(34,197,94,.08), rgba(255,255,255,.02));
+  position: relative; overflow: hidden;
+}
+.trophy{
+  font-size: 64px; animation: bounce 1.6s infinite ease-in-out;
+}
+@keyframes bounce{
+  0%,100%{ transform: translateY(0) }
+  50%{ transform: translateY(-8px) }
+}
+.confetti{
+  pointer-events:none; position: fixed; inset: 0;
+}
+.confetti span{
+  position: absolute; width: 8px; height: 14px; top: -10px;
+  background: linear-gradient(180deg, var(--gold), #fff176);
+  animation: fall 1.8s linear forwards;
+}
+@keyframes fall{
+  to{ transform: translateY(110vh) rotate(360deg); }
+}
+.small{ font-size: 12px; color: var(--muted); }
